@@ -5,8 +5,8 @@ class String
         "\e[#{color_code}m#{self}\e[0m"
     end
 
-    def red
-        colorize(31)
+    def brown
+        colorize(33)
     end
 
     def green
@@ -39,8 +39,7 @@ class Wordle
                 if input == @@answer
                     @@attempts[turn] = input.green
                 else 
-                    @@attempts[turn] = input.red
-                    # puts color_code(input)
+                    @@attempts[turn] = color_code(input)
                 end
                 turn += 1
                 puts "-------------"
@@ -55,8 +54,10 @@ class Wordle
         for index in 0..4 do
             if @@answer[index] == attempt[index]
                 result += attempt[index].green
+            elsif @@answer.include? attempt[index]
+                result += attempt[index].brown
             else
-                result += attempt[index].red
+                result += attempt[index]#.grey
             end
         end
         result
