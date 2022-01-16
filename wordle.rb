@@ -23,7 +23,6 @@ end
 class Wordle
     @@attempts = ["▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩"]
     @@answer = ""
-    @@turn = 0
     @@MAX_TURNS = 6
 
     def start
