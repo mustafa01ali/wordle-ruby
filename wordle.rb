@@ -21,25 +21,25 @@ end
 class Wordle
     @@attempts = ["▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩"]
     @@answer = "MAGIC"
-    # @@input = ""
     @@turn = 0
     @@max_turns = 6
 
     def start
         puts "* W O R D L E *"
         puts @@attempts
+        puts "---------"
         turn = 0
         input = ""
         while turn < @@max_turns && input != @@answer do
             input = gets.chomp.upcase()
             if input.empty? || input.size != 5
                 puts "Invalid input"
-            else 
+            else
                 @@attempts[turn] = color_code(input)
                 turn += 1
-                puts "-------------"
+                puts "---------"
                 puts @@attempts
-                puts "-------------"
+                puts "---------"
             end
         end
     end
