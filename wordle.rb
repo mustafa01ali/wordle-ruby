@@ -25,7 +25,7 @@ class Wordle
     @@max_turns = 6
 
     def start
-        puts "* W O R D L E *"
+        puts "\n* W O R D L E *"
         puts @@attempts
         puts "---------"
         turn = 0
@@ -60,9 +60,4 @@ class Wordle
 
 end    
 
-
-
-# if __FILE__ == $0
-    wordle = Wordle.new
-    wordle.start
-# end
+Wordle.new.start
