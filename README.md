@@ -1,3 +1,3 @@
 # Wordle - Ruby
 
-Learning Ruby by building a Wordle clone
+Simple Wordle clone written in Ruby 
