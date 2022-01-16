@@ -28,8 +28,6 @@ class Wordle
 
     def start
         @@answer = WORDS[rand(WORDS.size - 1)].upcase
-        puts @@answer
-
         puts "\n* W O R D L E *"
         puts @@attempts
         puts "---------"
@@ -46,6 +44,9 @@ class Wordle
                 puts @@attempts
                 puts "---------"
             end
+        end
+        if input != @@answer
+            puts "ANSWER: #{@@answer}"
         end
     end
 
