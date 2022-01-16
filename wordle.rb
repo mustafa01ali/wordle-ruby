@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require './wordlist.rb'
+
 class String 
     def colorize(color_code)
         "\e[#{color_code}m#{self}\e[0m"
@@ -20,19 +22,22 @@ end
 
 class Wordle
     @@attempts = ["▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩"]
-    @@answer = "MAGIC"
+    @@answer = ""
     @@turn = 0
-    @@max_turns = 6
+    @@MAX_TURNS = 6
 
     def start
+        @@answer = WORDS[rand(WORDS.size - 1)].upcase
+        puts @@answer
+
         puts "\n* W O R D L E *"
         puts @@attempts
         puts "---------"
         turn = 0
         input = ""
-        while turn < @@max_turns && input != @@answer do
-            input = gets.chomp.upcase()
-            if input.empty? || input.size != 5
+        while turn < @@MAX_TURNS && input != @@answer do
+            input = gets.chomp().upcase
+            if input.empty? || input.size != 5 || !(WORDS.include?(input.downcase))
                 puts "Invalid input"
             else
                 @@attempts[turn] = color_code(input)
