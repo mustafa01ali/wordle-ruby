@@ -19,8 +19,7 @@ class String
 end
 
 class Wordle
-
-    @@attempts = ["⬜️ ⬜️ ⬜️ ⬜️ ⬜️ ","⬜️ ⬜️ ⬜️ ⬜️ ⬜️ ", "⬜️ ⬜️ ⬜️ ⬜️ ⬜️ ", "⬜️ ⬜️ ⬜️ ⬜️ ⬜️ ", "⬜️ ⬜️ ⬜️ ⬜️ ⬜️ ", "⬜️ ⬜️ ⬜️ ⬜️ ⬜️ "]
+    @@attempts = ["▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩", "▩ ▩ ▩ ▩ ▩"]
     @@answer = "MAGIC"
     # @@input = ""
     @@turn = 0
@@ -36,11 +35,7 @@ class Wordle
             if input.empty? || input.size != 5
                 puts "Invalid input"
             else 
-                if input == @@answer
-                    @@attempts[turn] = input.green
-                else 
-                    @@attempts[turn] = color_code(input)
-                end
+                @@attempts[turn] = color_code(input)
                 turn += 1
                 puts "-------------"
                 puts @@attempts
@@ -53,11 +48,11 @@ class Wordle
         result = ""
         for index in 0..4 do
             if @@answer[index] == attempt[index]
-                result += attempt[index].green
+                result += (attempt[index].green + " ")
             elsif @@answer.include? attempt[index]
-                result += attempt[index].brown
+                result += (attempt[index].brown + " ")
             else
-                result += attempt[index]#.grey
+                result += (attempt[index].grey + " ")
             end
         end
         result
